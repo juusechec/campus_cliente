@@ -92,6 +92,7 @@ export class PagesComponent implements OnInit {
           // console.log('El error ocurrió en el lado del servidor.');
         }
         this.menu = MENU_ITEMS;
+        console.log('this.menu', this.menu);
       },
     );
     this.translateMenu();

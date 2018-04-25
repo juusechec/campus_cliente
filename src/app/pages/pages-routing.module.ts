@@ -41,6 +41,9 @@ const routes: Routes = [{
     path: 'tables',
     loadChildren: './tables/tables.module#TablesModule',
   }, {
+    path: 'cursos',
+    loadChildren: './cursos/inscripcion-curso.module#FormsModule',
+  }, {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
