@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
-import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
-import { AutenticationService } from '../../../@core/utils/autentication.service';
+// import { AutenticationService } from '../../../@core/utils/autentication.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ImplicitAutenticationService } from '../../../@core/utils/implicit_autentication.service';
 
 @Component({
   selector: 'ngx-header',
@@ -22,9 +22,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
-    private userService: UserService,
     private analyticsService: AnalyticsService,
-    private autenticacion: AutenticationService,
+    private autenticacion: ImplicitAutenticationService,
     public translate: TranslateService) {
     this.translate = translate;
   }
@@ -32,8 +31,6 @@ export class HeaderComponent implements OnInit {
     this.translate.use(language);
   }
   ngOnInit() {
-    this.userService.getUsers()
-      .subscribe((users: any) => this.user = users.nick);
     this.autenticacion.init();
   }
   liveToken() {
@@ -44,11 +41,12 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    location.href = this.autenticacion.getAuthorizationUrl();
+    window.location.replace(this.autenticacion.getAuthorizationUrl());
   }
 
   logout() {
-    location.href = this.autenticacion.getLogoutUrl();
+    console.info(this.autenticacion.logout());
+    // window.location.replace(this.autenticacion.logout());
   }
 
   toggleSidebar(): boolean {
