@@ -99,11 +99,8 @@ export class PagesComponent implements OnInit {
           // console.log('El error ocurrió en el lado del servidor.');
         }
         this.menu = MENU_ITEMS;
-<<<<<<< HEAD
-        console.log('this.menu', this.menu);
-=======
+	// console.log('this.menu', this.menu);
         this.translateMenu();
->>>>>>> master
       },
     );
     this.translateMenu();
