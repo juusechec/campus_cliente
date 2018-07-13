@@ -14,7 +14,6 @@ const routes: Routes = [{
     },
     {
     path: 'inscripcion',
-<<<<<<< HEAD
     loadChildren: './inscripcion/mockup.module#MockupModule',
   }, {
     path: 'inscripciones',
@@ -47,7 +46,6 @@ const routes: Routes = [{
     path: 'cursos',
     loadChildren: './cursos/inscripcion-curso.module#FormsModule',
   }, {
-=======
     loadChildren: './inscripcion/inscripcion.module#InscripcionModule',
     },
     {
@@ -115,7 +113,6 @@ const routes: Routes = [{
     loadChildren: './informacion_contacto/informacion_contacto.module#InformacionContactoModule',
     },
     {
->>>>>>> master
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
@@ -129,4 +126,3 @@ const routes: Routes = [{
 })
 export class PagesRoutingModule {
 }
-
